@@ -1,4 +1,5 @@
 ﻿using EPDServices.Application.Models.ILCD.Models.Process;
+using PdfSharpCore.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -269,8 +270,9 @@ namespace EPDServices.Application.ILCD
         }
 
         /// <remarks />
-        [XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        //[XmlElement("other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
         //[System.Xml.Serialization.XmlElementAttribute(Namespace = "http://lca.jrc.it/ILCD/Common")]
+        //[XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
         public otherCommon other
         {
             get
@@ -409,7 +411,8 @@ namespace EPDServices.Application.ILCD
             }
         }
 
-        [XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        [XmlElement("other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        //[XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
         /// <remarks />
         //[System.Xml.Serialization.XmlElementAttribute(Namespace = "http://lca.jrc.it/ILCD/Common")]
         public otherCommon other
@@ -429,23 +432,26 @@ namespace EPDServices.Application.ILCD
     /// <remarks />
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.iai.kit.edu/EPD/2013")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.iai.kit.edu/EPD/2013", IsNullable = false)]
+    //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.iai.kit.edu/EPD/2013")]
+    [XmlRoot(ElementName = "amount", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+    //[System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.iai.kit.edu/EPD/2013", IsNullable = false)]
     public partial class Amount
     {
         private string moduleField;
 
         private string valueField;
 
-        [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces xmlns = new XmlSerializerNamespaces(new[]
-        {
-            new XmlQualifiedName("epd", "http://www.iai.kit.edu/EPD/2013")  // Установите правильный префикс
-        });
+        //[XmlNamespaceDeclarations]
+        //public XmlSerializerNamespaces xmlns = new XmlSerializerNamespaces(new[]
+        //{
+        //    new XmlQualifiedName("epd", "http://www.iai.kit.edu/EPD/2013")  // Установите правильный префикс
+        //});
 
 
+        [XmlAttribute("module")]
         /// <remarks />
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
+        //[XmlAttribute("module", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        //[System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
         public string module
         {
             get
@@ -458,8 +464,9 @@ namespace EPDServices.Application.ILCD
             }
         }
 
+        [XmlText]
         /// <remarks />
-        [System.Xml.Serialization.XmlTextAttribute()]
+        //[System.Xml.Serialization.XmlTextAttribute()]
         public string Value
         {
             get
@@ -1495,19 +1502,19 @@ namespace EPDServices.Application.ILCD
 
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.iai.kit.edu/EPD/2013")]
-    [System.Xml.Serialization.XmlRootAttribute("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013", IsNullable = false)]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.iai.kit.edu/EPD/2013")]
+    //[System.Xml.Serialization.XmlRootAttribute("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013", IsNullable = false)]
     public partial class otherCommon
     {
-        [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces xmlns = new XmlSerializerNamespaces(new[]
-        {
-             new XmlQualifiedName("common", "http://www.iai.kit.edu/EPD/2013") // Правильный префикс "common"
-        });
+        //[XmlNamespaceDeclarations]
+        //public XmlSerializerNamespaces xmlns = new XmlSerializerNamespaces(new[]
+        //{
+        //     new XmlQualifiedName("common", "http://www.iai.kit.edu/EPD/2013") // Правильный префикс "common"
+        //});
         private System.Xml.XmlElement[] anyField;
 
         private Amount[] amountField;
@@ -1529,7 +1536,8 @@ namespace EPDServices.Application.ILCD
         }
 
         /// <remarks />
-        [System.Xml.Serialization.XmlElement("amount", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        //[System.Xml.Serialization.XmlElement("amount", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        [XmlElement("amount", Namespace = "http://www.iai.kit.edu/EPD/2013")]
         public Amount[] amount
         {
             get
@@ -2213,7 +2221,7 @@ namespace EPDServices.Application.ILCD
         }
 
         /// <remarks/>
-        [XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
+        //[XmlElement("common:other", Namespace = "http://www.iai.kit.edu/EPD/2013")]
         //[System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.iai.kit.edu/EPD/2013")]
         public otherCommon other
         {
